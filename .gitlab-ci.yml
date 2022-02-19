@@ -34,7 +34,7 @@ build:
   before_script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
   script:
-    - cd versions/$CI_COMMIT_TAG
+    - cd versions/$CI_COMMIT_TAG/alpine/apache/php73/
     - docker build --pull -t $CONTAINER_TEST_IMAGE .
     - docker push $CONTAINER_TEST_IMAGE    
 
