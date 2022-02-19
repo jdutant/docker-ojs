@@ -20,7 +20,7 @@ before_script:
 
 build-version:
   stage: build-version
-  image: debian-slim  
+  image: debian:slim  
   only: 
     - tags
   script:
