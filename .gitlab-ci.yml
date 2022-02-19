@@ -26,7 +26,8 @@ build-version:
   script:
     - ./build.sh $CI_COMMIT_TAG
   artifacts:
-    - ./versions
+    paths:
+      - versions/
 
 build:
   stage: build
