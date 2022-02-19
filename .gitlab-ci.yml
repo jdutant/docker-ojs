@@ -3,6 +3,7 @@ services:
   - docker:20.10.2-dind
 
 stages:
+  - build-version
   - build
   - test
   - release
@@ -17,13 +18,21 @@ variables:
 before_script:
   - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
 
+build-version:
+  stage: build-version
+  image: debian-slim  
+  only: 
+    - tags
+  script:
+    - ./build.sh $CI_COMMIT_TAG
+  artifacts:
+    - ./versions
 
 build:
   stage: build
   only: 
     - tags
   script:
-    - ./build.sh $CI_COMMIT_TAG
     - cd versions/$CI_COMMIT_TAG
     - docker build --pull -t $CONTAINER_TEST_IMAGE .
     - docker push $CONTAINER_TEST_IMAGE    
