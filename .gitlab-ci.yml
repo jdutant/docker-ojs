@@ -16,9 +16,6 @@ variables:
   CONTAINER_TEST_IMAGE: $CONTAINER_RELEASE_IMAGE-1.$CI_PIPELINE_IID
   BASE_IMAGE: "debian:bullseye-slim"
 
-before_script:
-  - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
-
 build-version:
   stage: build-version
   image: $BASE_IMAGE  
@@ -34,6 +31,8 @@ build:
   stage: build
   only: 
     - tags
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
   script:
     - cd versions/$CI_COMMIT_TAG
     - docker build --pull -t $CONTAINER_TEST_IMAGE .
@@ -43,6 +42,8 @@ release-image:
   stage: release
   only: 
     - tags
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
   script:
     # tag the test image for release and push
     - docker pull $CONTAINER_TEST_IMAGE
