@@ -17,9 +17,9 @@
 #       AUTHORS:  Dulip Withanage, David Cormier, Marc Bria.
 #  ORGANIZATION:  Public Knowledge Project (PKP)
 #       LICENSE:  GPL 3
-#       CREATED:  04/02/2020 23:50:15 CEST
+#       CREATED:  06/03/2022 16:45:15 CEST
 #       UPDATED:  }d{
-#      REVISION:  1.3
+#      REVISION:  1.4
 #===============================================================================
 
 set -Eeuo pipefail
@@ -62,111 +62,14 @@ webServers=(  'apache' )
 # webServers=(  'apache' 'nginx' )
 
 # All PHP versions:
-phpVersions=( 'php5' 'php7' 'php73' )
-# phpVersions=( 'php5' 'php7' 'php73' )
+phpVersions=( 'php5' 'php70' 'php73' 'php74' )
+# phpVersions=( 'php5' 'php70' 'php73' )
 
 # PHP support for each ojs version:
-php5=(  'ojs-2_0_0-0' \
-		'ojs-stable-2_4_8' \
-		'ojs-2_0_1-0' \
-		'ojs-2_0_2-0' \
-		'ojs-2_0_2-1' \
-		'ojs-2_1_0-0' \
-		'ojs-2_1_0-1' \
-		'ojs-2_1_1-0' \
-		'ojs-2_1_1rc4' \
-		'ojs-2_1b' \
-		'ojs-2_2_0-0' \
-		'ojs-2_2_0-b1' \
-		'ojs-2_2_0-b2' \
-		'ojs-2_2_1-0' \
-		'ojs-2_2_1-b1' \
-		'ojs-2_2_2-0' \
-		'ojs-2_2_3-0' \
-		'ojs-2_2_3-0rc1' \
-		'ojs-2_2_4-0' \
-		'ojs-2_3_0-0' \
-		'ojs-2_3_0-0rc1' \
-		'ojs-2_3_1-0' \
-		'ojs-2_3_1-1' \
-		'ojs-2_3_1-2' \
-		'ojs-2_3_2-0' \
-		'ojs-2_3_2-1' \
-		'ojs-2_3_3-0' \
-		'ojs-2_3_3-1' \
-		'ojs-2_3_3-2' \
-		'ojs-2_3_3-3' \
-		'ojs-2_3_4-0' \
-		'ojs-2_3_5-0' \
-		'ojs-2_3_6-0' \
-		'ojs-2_3_7-0' \
-		'ojs-2_3_8-0' \
-		'ojs-2_4_0-0' \
-		'ojs-2_4_1-0' \
-		'ojs-2_4_2-0' \
-		'ojs-2_4_3-0' \
-		'ojs-2_4_3rc1' \
-		'ojs-2_4_4-0' \
-		'ojs-2_4_4-1' \
-		'ojs-2_4_5-0' \
-		'ojs-2_4_6-0' \
-		'ojs-2_4_7-0' \
-		'ojs-2_4_7-1' \
-		'ojs-2_4_8-0' \
-		'ojs-2_4_8-1' \
-		'ojs-2_4_8-2' \
-		'ojs-2_4_8-3' \
-		'ojs-2_4_8-4' \
-		'ojs-2_4_8-5' \
-		'ojs-2.3.2-1' \
-		'ojs-3_0_2-0' \
-		'ojs-3_0_1-0' \
-		'ojs-3_0_0-0' \
-		'ojs-3_0b1'   \
-		'ojs-3_0a1' )
-
-php7=(  'ojs-3_0a1' \
-		'ojs-3_0b1'   \
-		'ojs-3_0_0-0' \
-		'ojs-3_0_1-0' \
-		'ojs-3_0_2-0' \
-		'ojs-3_1_0-0' \
-		'ojs-3_1_0-1' \
-		'ojs-3_1_1-0' \
-		'ojs-3_1_1-1' \
-		'ojs-3_1_1-2' \
-		'ojs-3_1_1-4' \
-		'3_1_2-0' \
-		'3_1_2-1' \
-		'3_1_2-2' \
-		'3_1_2-3' \
-		'3_1_2-4' )
-
-php73=( 'main'  \
-		'latest' \
-		'stable-3_3_0' \
-		'stable-3_2_1' \
-		'stable-3_2_0' \
-		'stable-3_1_2' \
-		'3_3_0-9' \
-		'3_3_0-8' \
-		'3_3_0-7' \
-		'3_3_0-6' \
-		'3_3_0-5' \
-		'3_3_0-4' \
-		'3_3_0-3' \
-		'3_3_0-2' \
-		'3_3_0-1' \
-		'3_3_0-0' \
-		'3_2_1-4' \
-		'3_2_1-3' \
-		'3_2_1-2' \
-		'3_2_1-1' \
-		'3_2_1-0' \
-		'3_2_0-3' \
-		'3_2_0-2' \
-		'3_2_0-1' \
-		'3_2_0-0' )
+mapfile -t php5  < ./platforms/php5.list
+mapfile -t php70 < ./platforms/php70.list
+mapfile -t php73 < ./platforms/php73.list
+mapfile -t php74 < ./platforms/php74.list
 
 printf "\n\nBUILDING OJS OFFICIAL DOCKER STACKS\n"
 printf "===================================\n\n"
@@ -190,13 +93,16 @@ for ojs in "${ojsVersions[@]}"; do
 					php5 )
 						[[ " ${php5[@]} " =~ " ${ojs} " ]] && build=1
 					;;
-					php7 )
-						[[ " ${php7[@]} " =~ " ${ojs} " ]] && build=1
+					php70 )
+						[[ " ${php70[@]} " =~ " ${ojs} " ]] && build=1
 					;;
 					php72 )
 						[[ " ${php72[@]} " =~ " ${ojs} " ]] && build=1
 					;;
 					php73 )
+					        [[ " ${php73[@]} " =~ " ${ojs} " ]] && build=1
+					;;
+					php74 )
 					        [[ " ${php73[@]} " =~ " ${ojs} " ]] && build=1
 					;;
 				esac
@@ -267,7 +173,7 @@ for ojs in "${ojsVersions[@]}"; do
 							"versions/$ojsNum/$os/$server/$php/docker-compose-local.yml"
 
 						# Setting a link with a non versioned folder with the last avaliable php version
-	                                        if [[ -d "versions/$ojsNum/$os/$server/php" ]]; then
+	                    if [[ -d "versions/$ojsNum/$os/$server/php" ]]; then
 							unlink "versions/$ojsNum/$os/$server/php"
 						fi
 						ln -s "$php" "versions/$ojsNum/$os/$server/php"
