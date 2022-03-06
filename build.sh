@@ -24,6 +24,14 @@
 
 set -Eeuo pipefail
 
+# Check if is running as root.
+if [[ $(/usr/bin/id -u) -ne 0 ]]; then
+	echo "This script needs to be run as root to modify folder persmissions."
+	echo ""
+	echo "Syntax: $ sudo $0 $@"
+    exit
+fi
+
 cd "$(dirname "$(readlink -f "$BASH_SOURCE")")"
 
 # You can pass the specific version of the stack you like to create.
@@ -100,15 +108,14 @@ for ojs in "${ojsVersions[@]}"; do
 						[[ " ${php72[@]} " =~ " ${ojs} " ]] && build=1
 					;;
 					php73 )
-					        [[ " ${php73[@]} " =~ " ${ojs} " ]] && build=1
+					    [[ " ${php73[@]} " =~ " ${ojs} " ]] && build=1
 					;;
 					php74 )
-					        [[ " ${php73[@]} " =~ " ${ojs} " ]] && build=1
+					    [[ " ${php74[@]} " =~ " ${ojs} " ]] && build=1
 					;;
 				esac
 
 				if [ ${build} -eq 1 ]; then
-
 					if [[ -d "templates/webServers/$server/$php" ]]; then
 						# Build the folder structure:
 						mkdir -p "versions/$ojsNum/$os/$server/$php/root"
