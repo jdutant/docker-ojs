@@ -39,7 +39,6 @@ ojsVersions=( "$@" )
 
 # Otherwise, all the versions for the existing folders will be recreated.
 if [ ${#ojsVersions[@]} -eq 0 ]; then
-	printf "This script performs actions that would require root privileges. If is not running as expected try with sudo.\n\n"
 	printf "Warning: This action is destructive. ALL former version folders will be removed.\n"
 	[[ "$(read -e -p 'Are you sure you want to continue? [y/N]> '; echo $REPLY)" == [Yy]* ]]
 
