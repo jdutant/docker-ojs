@@ -107,8 +107,7 @@ for ojs in "${ojsVersions[@]}"; do
 						# git tag -d $ojsNum &
 						# git push --delete origin $ojsNum & 
 						git tag $ojsNum -a -m "$ojsNum: [$server] $php (over $os)" &
-						git push origin $ojsNum --force &
-						exit
+						git push origin $ojsNum --force 
 					else
 						printf "   ERROR: Refusing to create a tag for $ojsNum."
 						printf " (Missing template for: templates/webservers/$server/$php)\n\N"
