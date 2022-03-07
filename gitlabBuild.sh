@@ -104,6 +104,8 @@ for ojs in "${ojsVersions[@]}"; do
 done
 
 echo ""
+echo "---------------------------------------------------"
 echo "Work done. Now you can review it and push with:"
 echo "- List all tags: $ git tag"
 echo "- Push all tags: $ git push origin --tags"
+echo "---------------------------------------------------"
