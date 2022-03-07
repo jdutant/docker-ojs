@@ -51,6 +51,15 @@ mapfile -t php74 < ./platforms/php74.list
 printf "\n\nBUILDING OJS OFFICIAL DOCKER STACKS\n"
 printf "===================================\n\n"
 
+if [ ${#ojsVersions[@]} -eq 0 ]; then
+        printf "Warning: This action is destructive. ALL former version folders will be removed.\n"
+	printf "Images are supposed to be immutable..."
+        [[ "$(read -e -p 'Are you sure you want to continue? [y/N]> '; echo $REPLY)" == [Yy]* ]]
+
+        # Warning: Versions need to fit with OJS tag names:
+        mapfile -t ojsVersions < versions.list
+fi
+
 for ojs in "${ojsVersions[@]}"; do
 	for os in "${osVersions[@]}"; do
 		for server in "${webServers[@]}"; do
