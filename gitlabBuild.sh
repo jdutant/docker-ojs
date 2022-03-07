@@ -106,7 +106,7 @@ for ojs in "${ojsVersions[@]}"; do
 						printf ">> BUILDING:    $ojsNum: [$server] $php (over $os)\n"
 						# git tag -d $ojsNum &
 						# git push --delete origin $ojsNum & 
-						git tag $ojsNum -a -m "$ojsNum: [$server] $php (over $os)" &
+						git tag $ojsNum -f -a -m "$ojsNum: [$server] $php (over $os)" 
 						git push origin $ojsNum --force 
 					else
 						printf "   ERROR: Refusing to create a tag for $ojsNum."
