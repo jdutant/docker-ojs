@@ -28,26 +28,6 @@ cd "$(dirname "$(readlink -f "$BASH_SOURCE")")"
 # You can pass the specific version of the stack you like to create.
 ojsVersions=( "$@" )
 
-# Otherwise, all the versions for the existing folders will be recreated.
-if [ ${#ojsVersions[@]} -eq 0 ]; then
-	printf "Warning: This action is destructive. ALL former version folders will be removed.\n"
-	[[ "$(read -e -p 'Are you sure you want to continue? [y/N]> '; echo $REPLY)" == [Yy]* ]]
-
-	# Warning: Versions need to fit with OJS tag names:
-	mapfile -t ojsVersions < versions.list
-else
-	if [ ${#ojsVersions[@]} -eq 1 ]; then
-		if [[ -d "versions/$ojsVersions" ]]; then
-			printf "Warning: This action is destructive. Existing version $ojsVersions will be removed.\n"
-			[[ "$(read -e -p 'Are you sure you want to continue? [y/N]> '; echo $REPLY)" == [Yy]* ]]
-		fi
-		mkdir -p "versions/$ojsVersions"
-	else
-		printf "Only one param is accepted.\n"
-		exit 0
-	fi
-fi
-
 # All the OJS versions:
 ojsVersions=( "${ojsVersions[@]%/}" )
 
