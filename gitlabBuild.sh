@@ -104,10 +104,10 @@ for ojs in "${ojsVersions[@]}"; do
 				if [ ${build} -eq 1 ]; then
 					if [[ -d "templates/webServers/$server/$php" ]]; then
 						printf ">> BUILDING:    $ojsNum: [$server] $php (over $os)\n"
-						git tag -d $ojsNum &
-						git push --delete origin $ojsNum & 
-						#git tag $ojsNum -a -m "$ojsNum: [$server] $php (over $os)" &
-						#git push origin $ojsNum 
+						# git tag -d $ojsNum &
+						# git push --delete origin $ojsNum & 
+						git tag $ojsNum -a -m "$ojsNum: [$server] $php (over $os)" &
+						git push origin $ojsNum 
 					else
 						printf "   ERROR: Refusing to create a tag for $ojsNum."
 						printf " (Missing template for: templates/webservers/$server/$php)\n\N"
