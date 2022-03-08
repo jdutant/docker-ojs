@@ -47,10 +47,7 @@ if [ ${#ojsVersions[@]} -eq 0 ]; then
 
 else
 	if [ ${#ojsVersions[@]} -eq 1 ]; then
-		if [[ -d "versions/$ojsVersions" ]]; then
-			printf "Warning: This action is destructive. Existing version $ojsVersions will be removed.\n"
-			[[ "$(read -e -p 'Are you sure you want to continue? [y/N]> '; echo $REPLY)" == [Yy]* ]]
-		fi
+		rm -Rf "versions/$ojsVersions"
 		mkdir -p "versions/$ojsVersions"
 	else
 		printf "Only one param is accepted.\n"
@@ -143,6 +140,10 @@ for ojs in "${ojsVersions[@]}"; do
 						echo "Folder to map and keep persistent your web logs \
 							  (uncomment the volume docker-compose.yml)" \
 							  > "versions/$ojsNum/$os/$server/$php/volumes/logs/app/README"
+
+						# RUNNING_GROUP=$(id -g)
+						# RUNNING_USER=$(id -u)
+						# chown "$RUNNING_GROUP":"$RUNNING_USER" versions
 
 						chown 100:101 "versions/$ojsNum/$os/$server/$php/volumes" -Rf
 
