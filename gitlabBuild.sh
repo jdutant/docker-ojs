@@ -18,7 +18,7 @@
 #       LICENSE:  GPL 3
 #       CREATED:  06/03/2022 16:45:15 CEST
 #       UPDATED:  }d{
-#      REVISION:  1.0
+#      REVISION:  1.1
 #===============================================================================
 
 set -Eeuo pipefail
@@ -83,10 +83,10 @@ for ojs in "${ojsVersions[@]}"; do
 						[[ " ${php72[@]} " =~ " ${ojs} " ]] && build=1
 					;;
 					php73 )
-					    [[ " ${php73[@]} " =~ " ${ojs} " ]] && build=1
+						[[ " ${php73[@]} " =~ " ${ojs} " ]] && build=1
 					;;
 					php74 )
-					    [[ " ${php74[@]} " =~ " ${ojs} " ]] && build=1
+						[[ " ${php74[@]} " =~ " ${ojs} " ]] && build=1
 					;;
 				esac
 
