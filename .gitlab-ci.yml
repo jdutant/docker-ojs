@@ -22,7 +22,7 @@ build-version:
   only: 
     - tags
   script:
-    - sudo ./build.sh $CI_COMMIT_TAG
+    - ./build.sh $CI_COMMIT_TAG
   artifacts:
     paths:
       - versions/
