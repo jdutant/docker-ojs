@@ -22,52 +22,53 @@ ENV COMPOSER_ALLOW_SUPERUSER=1  \
 ENV PHP_INI_DIR /etc/php/7.4
 
 # Basic packages
-ENV PACKAGES 		\
+ENV PACKAGES 			\
 	apache2 		\
-	apache2-ssl 	\
-	apache2-utils 	\
-	ca-certificates \
+	apache2-ssl 		\
+	apache2-utils 		\
+	ca-certificates 	\
 	curl 			\
-	ttf-freefont	\
+	ttf-freefont		\
 	dcron 			\
 	patch			\
 	php7			\
-	php7-apache2	\
+	php7-apache2		\
 	runit
 
 # PHP extensions
-ENV PHP_EXTENSIONS	\
+ENV PHP_EXTENSIONS		\
 	php7-bcmath		\
 	php7-bz2		\
-	php7-calendar	\
+	php7-calendar		\
 	php7-ctype		\
 	php7-curl		\
 	php7-dom		\
 	php7-exif		\
-	php7-fileinfo	\
+	php7-fileinfo		\
 	php7-ftp		\
-	php7-gettext	\
+	php7-gettext		\
 	php7-intl		\
 	php7-iconv		\
+        gnu-libiconv            \
 	php7-json		\
-	php7-mbstring	\
+	php7-mbstring		\
 	php7-mysqli		\
-	php7-opcache	\
-	php7-openssl	\
-	php7-pdo_mysql	\
+	php7-opcache		\
+	php7-openssl		\
+	php7-pdo_mysql		\
 	php7-phar		\
 	php7-posix		\
-	php7-session	\
+	php7-session		\
 	php7-shmop		\
-	php7-simplexml	\
-	php7-sockets	\
-	php7-sysvmsg	\
-	php7-sysvsem	\
-	php7-sysvshm	\
-	php7-tokenizer	\
+	php7-simplexml		\
+	php7-sockets		\
+	php7-sysvmsg		\
+	php7-sysvsem		\
+	php7-sysvshm		\
+	php7-tokenizer		\
 	php7-xml		\
-	php7-xmlreader	\
-	php7-xmlwriter	\
+	php7-xmlreader		\
+	php7-xmlwriter		\
 	php7-zip		\
 	php7-zlib
 
@@ -85,7 +86,6 @@ RUN set -xe \
 	&& apk add --no-cache --virtual .build-deps $BUILDERS \
 	&& apk add --no-cache $PACKAGES \
 	&& apk add --no-cache $PHP_EXTENSIONS \
-        && apk add --upgrade gnu-libiconv \
 # Building OJS:
 	# Configure and download code from git
 	&& git config --global url.https://.insteadOf git:// \
