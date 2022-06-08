@@ -7,7 +7,7 @@ ojs-pre-start
 echo "[OJS Start] Started cron"
 
 # Run the apache process in the foreground as in the php image
-# /usr/sbin/httpd -f /etc/apache2/httpd.conf -DFOREGROUND
+/usr/sbin/httpd -f /etc/apache2/httpd.conf -DFOREGROUND
 echo "[OJS Start] Started apache..."
 
 tail -f /var/log/apache2/access.log &
