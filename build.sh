@@ -7,6 +7,7 @@
 #
 #   DESCRIPTION:  A script to generate the folder structure and required
 #                 files to run a full ojs stack.
+#                 It will create the /versions folder.
 #
 #    PARAMETERS:
 #  <ojs>:  (optional) The release version that you like to generate.

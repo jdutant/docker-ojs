@@ -6,6 +6,7 @@
 #         USAGE:  gitlabBuild [<ojs>]
 #
 #   DESCRIPTION:  A script to generate tags to let gitLab build images.
+#                 You can do the same via gitLab web ui.
 #
 #    PARAMETERS:
 #         <ojs>:  (optional) The release version that you like to build.
