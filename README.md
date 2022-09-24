@@ -145,7 +145,7 @@ data and will let you share files from your host with the container.
 | ./volumes/private                       | ojs        | /var/www/files                        | All private files (uploads)    |
 | ./volumes/config/db.charset.conf        | db         | /etc/mysql/conf.d/charset.cnf         | mariaDB config file            |
 | ./volumes/config/ojs.config.inc.php     | ojs        | /var/www/html/config.inc.php          | OJS config file                |
-| ./volumes/config/php.custom.ini         | ojs        | /usr/local/etc/php/conf.d/custom.ini  | PHP custom.init                |
+| ./volumes/config/php.custom.ini         | ojs        | /etc/php7/php.custom.ini              | PHP custom.init                |
 | ./volumes/config/apache.htaccess        | ojs        | /var/www/html/.htaccess               | Apache2 htaccess               |
 | ./volumes/logs/app                      | ojs        | /var/log/apache2                      | Apache2 Logs                   |
 | ./volumes/logs/db                       | db         | /var/log/mysql                        | mariaDB Logs                   |
