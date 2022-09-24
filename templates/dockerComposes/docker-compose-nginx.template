@@ -42,7 +42,7 @@ services:
 #      - ./volumes/db:/var/lib/mysql
 #      - ./volumes/logs:/var/log/nginx
 #      - ./config/ojs.config.inc.php:/var/www/html/config.inc.php
-#      - ./config/php.custom.ini:/usr/local/etc/php/conf.d/custom.ini
+#      - ./config/php.custom.ini:/etc/php7/php.custom.ini
 
     networks:
       - inside

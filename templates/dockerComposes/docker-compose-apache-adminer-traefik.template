@@ -46,7 +46,7 @@ services:
 # Create files first, to avoid errors:
 #      - ./config/ojs.config.inc.php:/var/www/html/config.inc.php
 #      - ./config/apache.htaccess:/var/www/html/.htaccess
-#      - ./config/php.custom.ini:/usr/local/etc/php/conf.d/custom.ini
+#      - ./config/php.custom.ini:/etc/php7/php.custom.ini
 
 #    labels:
 #      - "traefik.backend=${COMPOSE_PROJECT_NAME}_ojs"
