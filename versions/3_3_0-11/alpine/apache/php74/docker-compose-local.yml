@@ -45,7 +45,7 @@ services:
       - ./volumes/public:/var/www/html/public
       - ./volumes/logs/app:/var/log/apache2
 #      # WARNING: You can only enable file-volumes if file exists in the container.
-#      - ./volumes/config/ojs.config.inc.php:/var/www/html/config.inc.php
+      - ./volumes/config/ojs.config.inc.php:/var/www/html/config.inc.php
 #      - ./volumes/config/apache.htaccess:/var/www/html/.htaccess
 #      - ./volumes/php.custom.ini:/etc/php7/php.custom.ini
 

@@ -13,5 +13,5 @@ versions/*/alpine/apache/php*/volumes/config/
 !versions/*/alpine/apache/php*/volumes/db/README
 !versions/*/alpine/apache/php*/volumes/logs/app/README
 !versions/*/alpine/apache/php*/volumes/logs/db/README
+!versions/*/alpine/apache/php*/volumes/config/ojs.config.TEMPLATE.inc.php
 !versions/*/alpine/apache/php*/volumes/config/README
-
