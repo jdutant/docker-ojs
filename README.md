@@ -1,6 +1,6 @@
 # OJS (Open Journal Systems) - PKP - Container/Docker
 
-## Note
+## Note on this repository
 
 This is a fork of [PKP's docker-ojs](https://github.com/docker-ojs), whose
 current development version is at [GitLab]
@@ -15,16 +15,15 @@ This repository has two branches:
 * `main`: creates a temporary local OJS application.
 * `persistent`: creates a local persistent OJS application: database, plugins, files etc. are preserved.
 
-## Corrected instructions
+## Usage notes
 
-The original README.md is copied below, but some corrections are needed.
+The original README.md is copied below. Note:
 
 * The only version available is `versions/3_3_0-11/alpine/apache/php74`
-* When installing PHP, enter `ojs_db_journal` as the hostname of the database. 
-    This should be the name of the container hosting the database. If in doubt,
-    check Docker Desktop's dashboard. You should have a `journal` stack of
-     containers with a database container; the latter's name is the 
-     database hostname OJS needs to connect to the database.
+* When installing OJS, the database hostname's should be `db` (the internal name
+    of the database container in the docker-compose file) or `ojs_db_journal`
+    (the name of the database container in the docker container stack, 
+    visible on Docker Desktop's dashboard).
 * If your machine has an ARM architecture / Apple Silicon you probably need 
     to build a local image (see below).
 

@@ -1,2 +1,17 @@
 .swp
 .sandbox
+
+# Ignore persistent user data
+versions/*/alpine/apache/php*/volumes/private/
+versions/*/alpine/apache/php*/volumes/public/
+versions/*/alpine/apache/php*/volumes/db/
+versions/*/alpine/apache/php*/volumes/logs/*/
+versions/*/alpine/apache/php*/volumes/config/
+# Except README files
+!versions/*/alpine/apache/php*/volumes/private/README
+!versions/*/alpine/apache/php*/volumes/public/README
+!versions/*/alpine/apache/php*/volumes/db/README
+!versions/*/alpine/apache/php*/volumes/logs/app/README
+!versions/*/alpine/apache/php*/volumes/logs/db/README
+!versions/*/alpine/apache/php*/volumes/config/README
+
