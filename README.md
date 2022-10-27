@@ -25,9 +25,10 @@ The original README.md is copied below. Note:
   file) or `ojs_db_journal`(the name of the database container in the docker
   container stack, visible on Docker Desktop's dashboard).
 * If your machine has an ARM architecture / Apple Silicon you probably need 
-    to build a local image (see below).
+    to build a local image. See below, but use the correct version
+    tag, currently `local/ojs:3_3_0-11`
 
-__For the persistent branch__:
+__To use the persistent branch__:
 
 After you've cloned the repository, create a `ojs.config.inc.php` file:
 
