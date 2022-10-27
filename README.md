@@ -13,7 +13,7 @@ PKP's docker-ojs is distributed under the GPL3 license, (c) Publick Knowledge Pr
 This repository has two branches:
 
 * `main`: creates a temporary local OJS application.
-* `persistent`: creates a local persistent OJS application: database, plugins, files etc. are preserved.
+* `persistent`: creates a local persistent OJS application: database, plugins, files etc. are preserved. Some set-up is needed to use that branch, see below.
 
 ## Usage notes
 
@@ -25,7 +25,21 @@ The original README.md is copied below. Note:
   file) or `ojs_db_journal`(the name of the database container in the docker
   container stack, visible on Docker Desktop's dashboard).
 * If your machine has an ARM architecture / Apple Silicon you probably need 
-    to build a local image (see below).
+    to build a local image. See below, but use the correct version
+    tag, currently `local/ojs:3_3_0-11`
+
+__To use the persistent branch__:
+
+After you've cloned the repository, create a `ojs.config.inc.php` file:
+
+* Navigate to the version PHP folder, (currently) `3_3_0-11/alpine/apache/php74/`
+* copy the template file in `volumes/config`:
+
+``` bash
+cp volumes/config/ojs.config.TEMPLATE.inc.php volumes/config/ojs.config.inc.php
+```
+
+
 
 
 # Orignal README.md
