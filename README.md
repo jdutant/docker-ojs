@@ -1,32 +1,33 @@
 # OJS (Open Journal Systems) - PKP - Container/Docker
 
+## Note
 
-| **IMPORTANT:** |
-|:---------------------------------------------------------|
-| **This repository is still beta, so it should be used with care in production settings - please provide feedback early and often about your experience.** <br />We are actively working to release a stable version soon. Keep tuned. |
+This is a fork of [PKP's docker-ojs](https://github.com/docker-ojs), whose
+current development version (as of Oct 2022) is at [GitLab](https://gitlab.com/pkp-org/docker/ojs). The GitLab version needs a couple of changes to work, implemented here. 
+
+PKP's docker-ojs is distributed under the GPL3 license, (c) Publick Knowledge Project 2022. It is based on work formerly done by [Lucas Dietrich](https://github.com/lucasdiedrich/ojs).
+
+This repository has two branches:
+
+* `main`: creates a temporary local OJS application.
+* `persistent`: creates a local persistent OJS application (database, plugins, files etc. are preserved.)
+
+## Corrected instructions
+
+The original README.md is copied below, but some corrections are needed.
+
+* The only version available is `versions/3_3_0-11/alpine/apache/php74`
+* When installing PHP, enter `ojs_db_journal` as the hostname of the database. 
+    This should be the name of the container hosting the database. If in doubt,
+    check Docker Desktop's dashboard. You should have a `journal` stack of
+     containers with a database container; the latter's name is the 
+     database hostname OJS needs to connect to the database.
+* If your machine has an ARM architecture / Apple Silicon you probably need 
+    to build a local image (see below).
 
 
-Open Journal Systems (OJS) is a journal management and publishing system that has been developed by the [Public Knowledge Project](https://pkp.sfu.ca/) through its federally funded efforts to expand and improve access to research.
+# Orignal README.md
 
-The images in this repository are built on top of [Alpine Linux](https://alpinelinux.org/) and come in several variants (see [Versions](#versions)).
-
-This repository is a fork of the work formerly done by [Lucas Dietrich](https://github.com/lucasdiedrich/ojs).
-
-
-<!-- ## Demo
-
-The fastest way to test docker-ojs is running the stack over "Play with docker".
-
-Just click the following link and create a user:
-
-[![Try in PWD](https://raw.githubusercontent.com/play-with-docker/stacks/master/assets/images/button.png)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/pkp/docker-ojs/master/versions/3_2_0-2/alpine/apache/php73/docker-compose.yml)
-
-Then wait till the containers are built and click in the 8081 port link to get a fresh clean demo with the last stable ojs version.
-
-| **TIP: Old versions on PWD **                                             |
-|:--------------------------------------------------------------------------|
-| Change the version number in [this url](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/pkp/docker-ojs/master/versions/3_2_0-2/alpine/apache/php73/docker-compose.yml) if you want to test an older version. |
--->
 
 ## How to use
 

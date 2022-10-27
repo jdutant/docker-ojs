@@ -85,7 +85,7 @@ RUN set -xe \
 	&& apk add --no-cache --virtual .build-deps $BUILDERS \
 	&& apk add --no-cache $PACKAGES \
 	&& apk add --no-cache $PHP_EXTENSIONS \
-        && RUN apk add --upgrade gnu-libiconv \
+    && apk add --upgrade gnu-libiconv \
 # Building OJS:
 	# Configure and download code from git
 	&& git config --global url.https://.insteadOf git:// \
