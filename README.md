@@ -12,7 +12,7 @@ PKP's docker-ojs is distributed under the GPL3 license, (c) Publick Knowledge Pr
 This repository has two branches:
 
 * `main`: creates a temporary local OJS application.
-* `persistent`: creates a local persistent OJS application: database, plugins, files etc. are preserved. Some set-up is needed to use that branch, see below.
+* `persistent`: creates a local persistent OJS application: database and article files. are preserved. Some set-up is needed to use that branch, see below. *Plugins and their settings are not preserved*.
 
 ## Usage notes
 
