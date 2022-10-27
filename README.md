@@ -2,9 +2,8 @@
 
 ## Note on this repository
 
-This is a fork of [PKP's docker-ojs](https://github.com/docker-ojs), whose
-current development version is at [GitLab]
-(https://gitlab.com/pkp-org/docker/ojs). The current (oct 2022) GitLab
+This is a fork of [PKP's docker-ojs](https://github.com/pkp/docker-ojs), whose
+current development version is at [GitLab](https://gitlab.com/pkp-org/docker/ojs). The current (oct 2022) GitLab
 version doesn't work out of the box, a couple of fixes are needed which are
 implemented here. 
 
