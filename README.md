@@ -20,10 +20,10 @@ This repository has two branches:
 The original README.md is copied below. Note:
 
 * The only version available is `versions/3_3_0-11/alpine/apache/php74`
-* When installing OJS, the database hostname's should be `db` (the internal name
-    of the database container in the docker-compose file) or `ojs_db_journal`
-    (the name of the database container in the docker container stack, 
-    visible on Docker Desktop's dashboard).
+* In the OJS installation form, make sure you enter the database hostname as
+  `db` (the internal name of the database container in the docker-compose
+  file) or `ojs_db_journal`(the name of the database container in the docker
+  container stack, visible on Docker Desktop's dashboard).
 * If your machine has an ARM architecture / Apple Silicon you probably need 
     to build a local image (see below).
 
