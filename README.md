@@ -3,14 +3,17 @@
 ## Note
 
 This is a fork of [PKP's docker-ojs](https://github.com/docker-ojs), whose
-current development version (as of Oct 2022) is at [GitLab](https://gitlab.com/pkp-org/docker/ojs). The GitLab version needs a couple of changes to work, implemented here. 
+current development version is at [GitLab]
+(https://gitlab.com/pkp-org/docker/ojs). The current (oct 2022) GitLab
+version doesn't work out of the box, a couple of fixes are needed which are
+implemented here. 
 
 PKP's docker-ojs is distributed under the GPL3 license, (c) Publick Knowledge Project 2022. It is based on work formerly done by [Lucas Dietrich](https://github.com/lucasdiedrich/ojs).
 
 This repository has two branches:
 
 * `main`: creates a temporary local OJS application.
-* `persistent`: creates a local persistent OJS application (database, plugins, files etc. are preserved.)
+* `persistent`: creates a local persistent OJS application: database, plugins, files etc. are preserved.
 
 ## Corrected instructions
 
